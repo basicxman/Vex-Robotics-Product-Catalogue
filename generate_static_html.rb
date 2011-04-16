@@ -47,7 +47,7 @@ File.open("static.html", "w") do |file|
             <th scope="col" id="category-header">Category</th>
             <th scope="col" id="description-header">Description</th>
             <th scope="col" id="price-header">Price</th>
-            <th scope="col" id="product-number-header">Product Number</th>
+            <th scope="col" id="product-number-header">SKU</th>
           </thead>
 
           <tbody>
@@ -63,7 +63,7 @@ File.open("static.html", "w") do |file|
         <td class="category-row">#{product['category']}</td>
         <td class="description-row"><span>#{product['desc']}</span>#{product['shortdesc']}</td>
         <td class="price-row">#{product['price']}</td>
-        <td class="product-number-row">#{product['pn']}</td>
+        <td class="sku-row">#{product['sku']}</td>
       </tr>
     eof
   end
