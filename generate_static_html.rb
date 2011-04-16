@@ -29,12 +29,14 @@ File.open("static.html", "w") do |file|
         <table id="product-catalogue">
 
           <thead>
-            <th scope="col" id="image-header">Image</th>
-            <th scope="col" id="name-header">Name</th>
-            <th scope="col" id="category-header">Category</th>
-            <th scope="col" id="description-header">Description</th>
-            <th scope="col" id="price-header">Price</th>
-            <th scope="col" id="product-number-header">SKU</th>
+            <tr>
+              <th scope="col" id="image-header">Image</th>
+              <th scope="col" id="name-header">Name</th>
+              <th scope="col" id="category-header">Category</th>
+              <th scope="col" id="description-header">Description</th>
+              <th scope="col" id="price-header">Price</th>
+              <th scope="col" id="product-number-header">SKU</th>
+            </tr>
           </thead>
 
           <tbody>
@@ -46,7 +48,7 @@ File.open("static.html", "w") do |file|
     file.puts <<-eof
       <tr>
         <td class="image-row"><img src="#{product['image']}" alt="#{product['name']} | #{product['category']}" title="#{product['name']} | #{product['category']}" /></td>
-        <td class="name-row"><a href="#{product['url']}" title="#{product['name']}">#{product['name']}</a></td>
+        <td class="name-row"><a href="#{product['url']}" title="#{product['name']}" target="_blank">#{product['name']}</a></td>
         <td class="category-row">#{product['category']}</td>
         <td class="description-row"><span>#{product['desc']}</span>#{product['shortdesc']}</td>
         <td class="price-row">$#{product['price']}</td>
