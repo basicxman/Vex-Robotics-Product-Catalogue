@@ -1,0 +1,21 @@
+body, table, thead, tbody, th, tr, td, img, p, div, span {
+  margin:0px;
+  padding:0px;
+  font-size:14px;
+  font-family:Helvetica, Verdana, Arial;
+}
+
+.description-row span {
+  display:none;
+}
+
+.image-row {
+  max-width:140px;
+  width:135px;
+}
+
+th {
+  border-bottom:2px solid #6678B1;
+  text-align:left;
+  font-size:16px;
+}

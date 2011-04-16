@@ -20,26 +20,13 @@ File.open("static.html", "w") do |file|
 
         <title>Vex Robotics Product Catalogue</title>
 
-        <style type="text/css">
-          .description-row span {
-            display:none;
-          }
-        </style>
+        <link rel="stylesheet" type="text/css" href="style-all.css" />
 
       </head>
 
       <body>
 
         <table id="product-catalogue">
-
-          <colgroup>
-            <col class="odd" />
-            <col class="even" />
-            <col class="odd" />
-            <col class="even" />
-            <col class="odd" />
-            <col class="even" />
-          </colgroup>
 
           <thead>
             <th scope="col" id="image-header">Image</th>
