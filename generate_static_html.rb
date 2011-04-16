@@ -25,7 +25,7 @@ File.open("static.html", "w") do |file|
       </head>
 
       <body>
-
+        
         <table id="product-catalogue">
 
           <thead>
@@ -44,9 +44,9 @@ File.open("static.html", "w") do |file|
   eof
   # HTML start.
 
-  products.each do |product|
+  products.each_with_index do |product, index|
     file.puts <<-eof
-      <tr>
+      <tr id="#{index}">
         <td class="image-row"><img src="#{product['image']}" alt="#{product['name']} | #{product['category']}" title="#{product['name']} | #{product['category']}" /></td>
         <td class="name-row"><a href="#{product['url']}" title="#{product['name']}" target="_blank">#{product['name']}</a></td>
         <td class="category-row">#{product['category']}</td>
@@ -63,6 +63,12 @@ File.open("static.html", "w") do |file|
           </tbody>
 
         </table>
+
+        <div id="footer">
+          <p>Please note that this site is not affiliated with Vex Robotics and/or Innovation First.  Vex Robotics is not responsible for any content here and pricing, descriptions and other data is subject to change.  This page was generated on <b>#{Time.now}</b>.</p>
+          <p>All pricing is in Canadian dollars.</p>
+          <p><a href="#" title="Back to Top">Back to Top</a></p>
+        </div>
 
       </body>
 
