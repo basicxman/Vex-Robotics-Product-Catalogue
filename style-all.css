@@ -5,7 +5,7 @@ body, table, thead, tbody, th, tr, td, img, p, div, span {
   font-family:Helvetica, Verdana, Arial;
 }
 
-.description-row span {
+.description-row span.full-description {
   display:none;
 }
 
@@ -47,3 +47,9 @@ td {
   padding:10px 10px 10px 5px;
   border-bottom:1px dotted #cccccc;
 }
+
+/* ~~~Hover Effects~~~ */
+tr:hover {
+  color:#4455B1;
+}
+/* ~~~End Hover Effects~~~ */

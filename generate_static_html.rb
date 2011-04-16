@@ -33,7 +33,7 @@ File.open("static.html", "w") do |file|
               <th scope="col" id="image-header">Image</th>
               <th scope="col" id="name-header">Name</th>
               <th scope="col" id="category-header">Category</th>
-              <th scope="col" id="description-header">Description</th>
+              <th scope="col" id="description-header">Description (click any text to expand)</th>
               <th scope="col" id="price-header">Price</th>
               <th scope="col" id="product-number-header">SKU</th>
             </tr>
@@ -50,7 +50,7 @@ File.open("static.html", "w") do |file|
         <td class="image-row"><img src="#{product['image']}" alt="#{product['name']} | #{product['category']}" title="#{product['name']} | #{product['category']}" /></td>
         <td class="name-row"><a href="#{product['url']}" title="#{product['name']}" target="_blank">#{product['name']}</a></td>
         <td class="category-row">#{product['category']}</td>
-        <td class="description-row"><span>#{product['desc']}</span>#{product['shortdesc']}</td>
+        <td class="description-row"><span class="full-description">#{product['desc']}</span><span class="short-description">#{product['shortdesc']}</span></td>
         <td class="price-row">$#{product['price']}</td>
         <td class="sku-row">#{product['sku']}</td>
       </tr>
@@ -66,9 +66,12 @@ File.open("static.html", "w") do |file|
 
         <div id="footer">
           <p>Please note that this site is not affiliated with Vex Robotics and/or Innovation First.  Vex Robotics is not responsible for any content here and pricing, descriptions and other data is subject to change.  This page was generated on <b>#{Time.now}</b>.</p>
-          <p>All pricing is in Canadian dollars.</p>
+          <p>All pricing is in Canadian dollars.  There are #{products.length} products in this catalogue.</p>
           <p><a href="#" title="Back to Top">Back to Top</a></p>
         </div>
+        
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="main.js"></script>
 
       </body>
 
