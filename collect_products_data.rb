@@ -28,9 +28,10 @@ product_pages.each do |product_listing_url|
     temp = {}
     temp[:image] = product.css(".product-image img").attr("src").value
     temp[:name]  = product.css(".product-shop h5 a").text
-    temp[:price] = product.css(".price-box .price").text
+    temp[:price] = product.css(".price-box .price").text.gsub(/[^0-9\.]/, '')
     temp[:desc]  = product.css(".product-shop .description").to_html
-    temp[:pn]    = product.css(".product-sku").text.gsub("P/N: ", "")
+    temp[:shortdesc] = product.css(".product-shop .description p").text[0..50]
+    temp[:sku]   = product.css(".product-sku").text.gsub("P/N: ", "")
     temp[:url]   = product.css(".product-shop a").attr("href").value
     temp[:category] = category
     products_index << temp

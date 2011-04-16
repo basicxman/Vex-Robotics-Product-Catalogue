@@ -59,10 +59,10 @@ File.open("static.html", "w") do |file|
     file.puts <<-eof
       <tr>
         <td class="image-row"><img src="#{product['image']}" alt="#{product['name']} | #{product['category']}" title="#{product['name']} | #{product['category']}" /></td>
-        <td class="name-row">#{product['name']}</td>
+        <td class="name-row"><a href="#{product['url']}" title="#{product['name']}">#{product['name']}</a></td>
         <td class="category-row">#{product['category']}</td>
-        <td class="description-row"><span>#{product['desc']}</span>#{product['shortdesc']}</td>
-        <td class="price-row">#{product['price']}</td>
+        <td class="description-row"><span>#{product['desc']}</span>#{product['shortdesc']}...</td>
+        <td class="price-row">$#{product['price']}</td>
         <td class="sku-row">#{product['sku']}</td>
       </tr>
     eof
