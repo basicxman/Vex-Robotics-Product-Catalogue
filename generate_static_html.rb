@@ -52,7 +52,7 @@ File.open("static.html", "w") do |file|
     file.puts <<-eof
       <tr id="#{index}">
         <td class="image-row"><img src="#{product['image']}" alt="#{product['name']} | #{product['category']}" title="#{product['name']} | #{product['category']}" /></td>
-        <td class="name-row"><a href="#{product['url']}" title="#{product['name']}" target="_blank">#{product['name']}</a></td>
+        <td class="name-row"><a href="#{product['url']}" title="#{product['name']}" target="_blank">#{product['name']}</a><br />#{Helper::meta_for_name_row(product)}</td>
         <td class="category-row">#{product['category']}</td>
         <td class="description-row"><span class="full-description">#{product['desc']}</span><span class="short-description">#{product['shortdesc']}</span></td>
         <td class="price-row">#{Helper::display_price(product['price'])}</td>
@@ -75,6 +75,7 @@ File.open("static.html", "w") do |file|
           <p><a href="#" title="Back to Top">Back to Top</a></p>
         </div>
         
+        <script type="text/javascript" src="analytics.js"></script>
         <script type="text/javascript" src="jquery.js"></script>
         <script type="text/javascript" src="jquery-ui.js"></script>
         <script type="text/javascript" src="main.js"></script>

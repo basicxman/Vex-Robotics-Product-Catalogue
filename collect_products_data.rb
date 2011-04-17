@@ -35,6 +35,16 @@ def get_detailed_product_information(url)
   product_shop_prices = product_shop.css(".price-box .price")
   if product_shop_prices.length > 0
     temp[:price] = product_shop_prices.first.text.gsub(/[^0-9\.]/, '')
+    spec_box = page.css("#product-attribute-specs-table")
+    spec_box.css("a").each do |link|
+      unless link.attr("href").index("inventors-guide").nil?
+        temp[:inventors_guide] = link.attr("href")
+      end
+
+      unless link.attr("href").index("STEP").nil?
+        temp[:step] = link.attr("href")
+      end
+    end
   else
     temp[:multiproduct] = true
     table = page.css("#super-product-table").first
