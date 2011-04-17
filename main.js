@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $(".description-row").click(function() {
-    var id = $(this).parent().attr('id');
+    var id = $(this).parent().attr('class');
     if ($(this).children("span.full-description").css("display") == "none") {
       $(this).children(".short-description").hide();
       $(this).children().each(function() { $(this).disableSelection(); });

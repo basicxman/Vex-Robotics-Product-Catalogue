@@ -38,6 +38,7 @@ File.open("static.html", "w") do |file|
               <th scope="col" id="description-header">Description (click any text to expand)</th>
               <th scope="col" id="price-header">Price</th>
               <th scope="col" id="product-number-header">SKU</th>
+              <th></th>
             </tr>
           </thead>
 
@@ -47,16 +48,24 @@ File.open("static.html", "w") do |file|
   # HTML start.
 
   index = 0
+  classes_done = []
   products.each_key do |key|
     product = products[key]
+    row_class = ""
+    unless classes_done.include? product['category']
+      classes_done << product['category']
+      row_id = product['category']
+    end
+
     file.puts <<-eof
-      <tr id="#{index}">
+      <tr class="#{index}" id="#{row_id}">
         <td class="image-row"><img src="#{product['image']}" alt="#{product['name']} | #{product['category']}" title="#{product['name']} | #{product['category']}" /></td>
         <td class="name-row"><a href="#{product['url']}" title="#{product['name']}" target="_blank">#{product['name']}</a><br />#{Helper::meta_for_name_row(product)}</td>
         <td class="category-row">#{product['category']}</td>
         <td class="description-row"><span class="full-description">#{product['desc']}</span><span class="short-description">#{product['shortdesc']}</span></td>
         <td class="price-row">#{Helper::display_price(product['price'])}</td>
         <td class="sku-row">#{product['sku']}</td>
+        <td><a href="#" title="Go to top" style="text-decoration:none;">&uarr;</a><br /><br /><a href="##{product['category']}" title="Go to #{product['category']}" style="text-decoration:none;">&crarr;</a></td>
       </tr>
     eof
     index += 1
