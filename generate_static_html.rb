@@ -4,6 +4,7 @@
 # Generates a static HTML file containing a table of all Vex products.
 
 require 'json/pure'
+require File.expand_path("helpers", File.dirname(__FILE__))
 
 products = JSON.parse(File.read("./products.json"))
 File.open("static.html", "w") do |file|
@@ -21,6 +22,7 @@ File.open("static.html", "w") do |file|
         <title>Vex Robotics Product Catalogue</title>
 
         <link rel="stylesheet" type="text/css" href="style-all.css" />
+        <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery.css" />
 
       </head>
 
@@ -51,7 +53,7 @@ File.open("static.html", "w") do |file|
         <td class="name-row"><a href="#{product['url']}" title="#{product['name']}" target="_blank">#{product['name']}</a></td>
         <td class="category-row">#{product['category']}</td>
         <td class="description-row"><span class="full-description">#{product['desc']}</span><span class="short-description">#{product['shortdesc']}</span></td>
-        <td class="price-row">$#{product['price']}</td>
+        <td class="price-row">#{Helper::display_price(product['price'])}</td>
         <td class="sku-row">#{product['sku']}</td>
       </tr>
     eof
@@ -71,6 +73,7 @@ File.open("static.html", "w") do |file|
         </div>
         
         <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="jquery-ui.js"></script>
         <script type="text/javascript" src="main.js"></script>
 
       </body>
