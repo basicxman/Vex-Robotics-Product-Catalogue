@@ -46,7 +46,9 @@ File.open("static.html", "w") do |file|
   eof
   # HTML start.
 
-  products.each_with_index do |product, index|
+  index = 0
+  products.each_key do |key|
+    product = products[key]
     file.puts <<-eof
       <tr id="#{index}">
         <td class="image-row"><img src="#{product['image']}" alt="#{product['name']} | #{product['category']}" title="#{product['name']} | #{product['category']}" /></td>
@@ -57,6 +59,7 @@ File.open("static.html", "w") do |file|
         <td class="sku-row">#{product['sku']}</td>
       </tr>
     eof
+    index += 1
   end
   
 

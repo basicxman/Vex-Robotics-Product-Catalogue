@@ -52,7 +52,7 @@ def get_detailed_product_information(url)
   temp
 end
 
-products_index = []
+products_index = {}
 
 product_pages.each do |product_listing_url|
   
@@ -72,7 +72,7 @@ product_pages.each do |product_listing_url|
     temp.merge! get_detailed_product_information(temp[:url])
 
     if temp[:multiproduct].nil?
-      products_index << temp
+      products_index[temp[:sku]] = temp
     else
       temp_products = []
       temp[:subproducts].each do |sub_product|
@@ -82,7 +82,10 @@ product_pages.each do |product_listing_url|
         sub_temp[:sku]   = sub_product[:sku]
         temp_products << sub_temp
       end
-      products_index += temp_products
+
+      temp_products.each do |product|
+        products_index[product[:sku]] = product
+      end
     end
   end
 
